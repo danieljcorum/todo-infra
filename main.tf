@@ -11,10 +11,10 @@ terraform {
   }
 }
 
-resource "google_storage_bucket" "todo-code" {
-  name          = "dcorum-todo-app"
-  location      = "US-EAST4"
-}
+// resource "google_storage_bucket" "todo-code" {
+//   name          = "dcorum-todo-app"
+//  location      = "US-EAST4"
+// }
 
 resource "google_app_engine_standard_app_version" "todo-app" {
   version_id = "v4"
@@ -27,7 +27,7 @@ resource "google_app_engine_standard_app_version" "todo-app" {
 
   deployment {
     zip {
-      source_url = "https://storage.googleapis.com/${google_storage_bucket.todo-code.name}/todo.zip"
+      source_url = "https://storage.googleapis.com/dcorum-todo-app/todo.zip"
     }
   }
 
